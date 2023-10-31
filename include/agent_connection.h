@@ -7,7 +7,7 @@
 
 #ifndef AGENT_AGENT_CONNECTION_H
 #define AGENT_AGENT_CONNECTION_H
-#include <obelisk.h>
+#include <obelisk/obelisk.h>
 #include "packages/package.h"
 class agent_connection : public obelisk::core::details::socket_base{
 public:
