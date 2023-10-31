@@ -11,7 +11,7 @@
 #include <functional>
 #include <utility>
 #include <thread>
-
+#include <memory>
 class job_base : public std::enable_shared_from_this<job_base>{
 
 public:

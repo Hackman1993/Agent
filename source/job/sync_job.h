@@ -7,9 +7,10 @@
 
 #ifndef AGENT_SYNC_JOB_H
 #define AGENT_SYNC_JOB_H
-
+#include <thread>
 #include <mutex>
 #include <functional>
+#include <condition_variable>
 #include "packages/protos/rendering_job.pb.h"
 
 class sync_job : public std::enable_shared_from_this<sync_job>{
