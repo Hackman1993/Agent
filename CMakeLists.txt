@@ -7,7 +7,7 @@ file(GLOB_RECURSE CPP_HEADERS include/*.h include/*.hpp)
 file(GLOB_RECURSE CPP_SOURCES source/*.cpp include/*.cc)
 file(GLOB_RECURSE PROTOBUF_FILES ./source/packages/protos/*.proto)
 
-find_package(Boost REQUIRED COMPONENTS url thread json fiber)
+find_package(Boost REQUIRED COMPONENTS url thread json fiber filesystem)
 find_package(fmt CONFIG REQUIRED)
 find_package(sahara REQUIRED)
 find_package(obelisk REQUIRED)
@@ -19,7 +19,7 @@ set(protobuf_generate_PROTOC_OUT_DIR ${CMAKE_CURRENT_SOURCE_DIR}/include/package
 add_library(${PROJECT_NAME} ${CPP_HEADERS} ${CPP_SOURCES} )
 target_include_directories(${PROJECT_NAME} PRIVATE include)
 target_include_directories(${PROJECT_NAME} PRIVATE ${Boost_INCLUDE_DIRS})
-target_link_libraries(${PROJECT_NAME} PRIVATE sahara::sahara obelisk::obelisk Boost::json)
+target_link_libraries(${PROJECT_NAME} PRIVATE sahara::sahara obelisk::obelisk Boost::json Boost::filesystem)
 target_link_libraries(${PROJECT_NAME} PRIVATE protobuf::libprotoc protobuf::libprotobuf protobuf::libprotobuf-lite)
 
 message(STATUS ${PROTOBUF_FILES})
