@@ -1,0 +1,31 @@
+syntax = "proto3";
+package agent.package.client;
+
+enum OS_TYPE{
+  OS_TYPE_UNKNOWN = 0;
+  OS_TYPE_WINDOWS = 1;
+  OS_TYPE_LINUX = 2;
+  OS_TYPE_MACOS = 4;
+  OS_TYPE_UNIX = 8;
+}
+
+
+message client_info {
+  OS_TYPE os_ = 1;
+  uint64 ability_ = 2;
+  string client_id_ = 3;
+  uint32 client_version_ = 4;
+  uint64 message_type_ = 5;
+}
+
+message dispatchable_status{
+  enum dispatchable_status_type{
+    DST_SUCCESS = 0;
+    DST_FAILED = 1;
+    DST_UPDATE = 2;
+  }
+  string dispatchable_id_ = 1;
+  string reason_ = 2;
+  dispatchable_status_type status_ = 3;
+  string additional_data = 4;
+}

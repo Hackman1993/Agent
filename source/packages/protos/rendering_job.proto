@@ -1,0 +1,22 @@
+syntax = "proto3";
+package agent.package.renderer;
+
+message project_files{
+  string relative_path = 1;
+  string download_url = 2;
+}
+
+message render_project{
+  string project_id = 1;
+  uint32 begin_frame = 2;
+  uint32 end_frame = 3;
+  repeated  project_files files = 4;
+  project_files blend_file = 5;
+  string blender_version = 6;
+}
+
+message rendering_job{
+  string job_id = 1;
+  uint32 frame = 2;
+  render_project project = 3;
+}
