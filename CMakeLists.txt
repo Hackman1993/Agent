@@ -16,7 +16,7 @@ find_package(Protobuf REQUIRED)
 set(Protobuf_IMPORT_DIRS ${CMAKE_CURRENT_SOURCE_DIR}/source/packages/protos)
 set(protobuf_generate_PROTOC_OUT_DIR ${CMAKE_CURRENT_SOURCE_DIR}/include/packages/protos)
 
-add_library(${PROJECT_NAME} ${CPP_HEADERS} ${CPP_SOURCES} )
+add_library(${PROJECT_NAME} STATIC ${CPP_HEADERS} ${CPP_SOURCES} )
 target_include_directories(${PROJECT_NAME} PRIVATE include)
 target_include_directories(${PROJECT_NAME} PRIVATE ${Boost_INCLUDE_DIRS})
 target_link_libraries(${PROJECT_NAME} PRIVATE sahara::sahara obelisk::obelisk Boost::json Boost::filesystem)
